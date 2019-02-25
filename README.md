@@ -21,13 +21,13 @@ In todo.js, export five methods:
 async createTask(title, description);
 This async function will resolve to the newly created to-do list object, with the following properties.
 
-{
+    {
     _id: "a unique identifier for the task; you will generate these using uuid package",
     title: "the title of the task",
     description: "a descriptive bio of the task",
     completed: false,
     completedAt: null
-}   
+    }   
 This task will be stored in the todoItems collection.
 
 If the task cannot be created, the method will reject.
@@ -35,7 +35,7 @@ If the task cannot be created, the method will reject.
 You would use it as:
 const todoItems = require("./todo");
 
-async function main() {
+    async function main() {
     const createdTask = await todoItems.createTask("My First Task", "This is the first thing I need to do today");
     console.log(createdTask);
 }
@@ -46,10 +46,10 @@ This function will resolve to an array of all tasks in the database.
 
 const todoItems = require("./todo");
 
-async function main() {
+    async function main() {
     const getTasks = await todoItems.getAllTasks();
     console.log(getTasks);
-}
+    }
 
 main();
 async getTask(id);
@@ -63,10 +63,10 @@ For example, you would use this method as:
 
 const todoItems = require("./todo");
 
-async function main() {
-    const task = await todoItems.getTask("9714a17c-f228-49e9-a772-9086f5ff8bfb");
-    console.log(task);
-}
+    async function main() {
+        const task = await todoItems.getTask("9714a17c-f228-49e9-a772-9086f5ff8bfb");
+        console.log(task);
+    }
 
 main();
 async completeTask(taskId)
@@ -80,11 +80,11 @@ If the update is successful, this method will resolve to the updated task.
 
 const todoItems = require("./todo");
 
-async function main() {
-    const task = await todoItems.getTask("9714a17c-f228-49e9-a772-9086f5ff8bfb");
-    const finishedTask = await todoItems.completeTask(task._id); 
-    console.log(finishedTask);
-}
+    async function main() {
+        const task = await todoItems.getTask("9714a17c-f228-49e9-a772-9086f5ff8bfb");
+        const finishedTask = await todoItems.completeTask(task._id); 
+        console.log(finishedTask);
+    }
 
 main();
 
@@ -99,8 +99,8 @@ If the removal succeeds, resolve to true.
 
 const todoItems = require("./todo");
 
-async function main() {
-    const removeTask = await todoItems.removeTask("9714a17c-f228-49e9-a772-9086f5ff8bfb");
+    async function main() {
+        const removeTask = await todoItems.removeTask("9714a17c-f228-49e9-a772-9086f5ff8bfb");
 
     try {
         return await todoItems.getTask("9714a17c-f228-49e9-a772-9086f5ff8bfb");
